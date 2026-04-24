@@ -1,3 +1,1 @@
-error code: -22
-error message:
-TX decode failed. Make sure the tx has at least one input.
+d5294c05cf6b404bdf9d57fe6b56bd573c86905fca22ddc8a53274118561d118

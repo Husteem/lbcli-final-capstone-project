@@ -9,7 +9,7 @@ for ((i=0; i<$count; i++)); do
     VIN_TXID=$(echo "$TX_JSON" | jq -r ".vin[$i].txid")
     VIN_VOUT=$(echo "$TX_JSON" | jq -r ".vin[$i].vout")
     VIN_VALUE=$(bitcoin-cli -signet getrawtransaction "$VIN_TXID" true | jq -r ".vout[$VIN_VOUT].value")
-    IN_SUM=$(awk "BEGIN {print $IN_SUM + $VIN_VALUE}")
+    IN_SUM=$(awk "BEGIN {printf \"%.8f\", $IN_SUM + $VIN_VALUE}")
 done
 
 FEE_BTC=$(awk "BEGIN {printf \"%.8f\", $IN_SUM - $OUT_SUM}")
